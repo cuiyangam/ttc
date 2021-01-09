@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // MessageCheenl
+      let worker = new Worker('./web.js');
+      worker.postMessage(100);
+      worker.onmessage  = function (e) {
+        console.log(e.data);
+      }
+      console.log('hello');
+      // 上周 es6 promise 周二收 
+      
+
+      // 在线公开课地址中  1035465284@qq.com
+      // puppeteer 
+    </script>
+</body>
+</html>

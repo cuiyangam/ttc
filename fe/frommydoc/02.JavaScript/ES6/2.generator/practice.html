@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      position: relative
+    }
+
+    #box div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    #box :nth-child(1) {
+      top: 0;
+    }
+
+    #box :nth-child(2) {
+      top: 120px;
+    }
+
+    #box :nth-child(3) {
+      top: 240px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <script>
+    let box = document.getElementById('box');
+    let balls = box.querySelectorAll('div');
+    function move(ele, distance) {
+      return new Promise((resolve, reject) => {
+        let pos = 0;
+        let timer = setInterval(() => {
+          pos += 2;
+          if (pos >= distance) {
+            clearInterval(timer);
+            resolve();
+          } else {
+            ele.style.left = pos + 'px';
+          }
+        }, 13);
+      })
+    }
+    async function m() {
+      await move(balls[0], 500);
+      await move(balls[1], 300);
+      await move(balls[2], 100);
+    }
+    m().then(data => {
+      alert('move all by async/await')
+    });
+
+    // generator 
+    // function * m() {
+    //   yield move(balls[0], 500)
+    //   yield move(balls[1], 300)
+    //   yield move(balls[2], 100)
+    // }
+    // function co(it) {
+    //   return new Promise((resolve,reject)=>{
+    //     function next(data) {
+    //        let {value,done} =  it.next(data);
+    //        if(!done){
+    //          value.then(data=>{
+    //            next(data);
+    //          },reject)
+    //        }else{
+    //          resolve(value);
+    //        }
+    //     }
+    //     next();
+    //   })
+    // }
+    // co(m()).then(data=>{
+    //     alert('move all by generator')
+    // })
+
+    // promise
+    // move(balls[0], 500).then(data => {
+    //   return move(balls[1], 300)
+    // }).then(data => {
+    //   return move(balls[2], 100)
+    // }).then(data => {
+    //   alert('move all by promise')
+    // });
+
+    // callback
+    // let box = document.getElementById('box');
+    // let balls = box.querySelectorAll('div');
+    // function move(ele, distance, callback) {
+    //   let pos = 0;
+    //   let timer = setInterval(() => {
+    //     pos += 2;
+    //     if (pos >= distance) {
+    //       clearInterval(timer);
+    //       callback();
+    //     } else {
+    //       ele.style.left = pos + 'px';
+    //     }
+    //   }, 13);
+    // }
+    // move(balls[0], 500, function () {
+    //   move(balls[1], 300, function () {
+    //     move(balls[2], 100, function () {
+    //       alert('move all by callback')
+    //     })
+    //   })
+    // });
+
+  </script>
+</body>
+
+</html>

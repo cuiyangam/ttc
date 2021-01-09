@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./01.节流与去抖.js"></script>
+  <div id="s1">s1
+    <div id="s2">s2</div>
+</div>
+<div class="a" style="height: 10000px;"></div>
+<script>
+  let a = debounce(function(e){
+        console.log("s1 冒泡事件");
+    }, 1000);
+    s1.addEventListener("click", a);
+    // s2.addEventListener("click",function(e){
+    //     console.log("s2 冒泡事件");
+    // },false);
+</script>
+</body>
+</html>

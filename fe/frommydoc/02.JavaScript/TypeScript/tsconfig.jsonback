@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "./t.temp/bin",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "02.JavaScript/TypeScript/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

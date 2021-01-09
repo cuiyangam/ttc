@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div"></div>
+  <script>
+    // 宏任务  setImmediate MessageChannel setTimeout
+    // 微任务  Promise.then  MutationObserver
+    // click ajax 
+    // setImmediate(function () {
+    //   console.log('setImmediate');
+    // })
+    // setTimeout(function () {
+    //   console.log('timeut')
+    // }, 0);
+
+    // let channel = new MessageChannel();
+    // let port1 = channel.port1;
+    // let port2 = channel.port2;
+
+    // port2.postMessage('hello'); // 发消息是异步的
+    // port1.onmessage = function (data) {
+    //     console.log(data.data);
+    // }
+    // console.log('3');
+    let observer = new  MutationObserver(function(){
+      console.log('p插入完成', document.querySelectorAll('p').length);
+    });
+    observer.observe(div,{ childList:true});
+    for (let i = 0; i < 50; i++) {
+      div.appendChild(document.createElement('p'));
+    }
+    for (let i = 0; i < 50; i++) {
+      div.appendChild(document.createElement('p'));
+    }
+  </script>
+</body>
+
+</html>
