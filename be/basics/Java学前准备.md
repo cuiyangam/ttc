@@ -30,6 +30,8 @@ cmd + ,        Settings/Preferences
 Java程序总是从main方法开始执行
 一个Java源文件只能定义一个public类型的class，并且该class名称和源文件名要完全一致
 
+[JDK 与 DOC 下载地址](https://www.oracle.com/java/technologies/javase-downloads.html)
+
 参考：
 1. [廖雪峰Java教程](https://www.liaoxuefeng.com/wiki/1252599548343744)
 2. [stackoverflow](https://stackoverflow.com/)

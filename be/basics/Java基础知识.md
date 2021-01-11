@@ -32,6 +32,7 @@ final修饰的变量是常量,命名通常全大写。不同于JS，Java可以�
 构造方法  默认构造方法，构造方法可以是多个；new一个实例时，先初始化字段，再调用构造方法
 方法重载  重载overload，方法名相同参数不同
 继承     关键字extends, Java只允许继承单个父类；子类访问父类合法字段可使用 super; final修饰的类不可被继承;instanceof
+private packaged protected public 依次可以在本类 同包中的类 子类 其他类 中可访问
 多态     继承与override产生多态，final修饰的变量仅可以被赋值一次
 
 抽象类：abstract,方法抽象则多在的类一定钥匙抽象的
@@ -66,6 +67,58 @@ Error是无需捕获的严重错误，Exception是应该捕获的可处理的错
 `String s = "Hello"; Class cls = s.getClass();`
 `Class cls = Class.forName("java.lang.String");`
 JVM 懒加载类
+```java
+import java.lang.Class;
+import java.lang.reflect.*;
+
+class Dog {
+
+    // methods of the class
+    public void display() {
+        System.out.println("I am a dog.");
+    }
+
+    private void makeSound() {
+        System.out.println("Bark Bark");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        try {
+
+            // create an object of Dog
+            Dog d1 = new Dog();
+
+            // create an object of Class
+            // using getClass()
+            Class obj = d1.getClass();
+
+            // using object of Class to
+            // get all the declared methods of Dog
+            Method[] methods = obj.getDeclaredMethods();
+
+            // create an object of the Method class
+            for (Method m : methods) {
+
+                // get names of methods
+                System.out.println("Method Name: " + m.getName());
+
+                // get the access modifier of methods
+                int modifier = m.getModifiers();
+                System.out.println("Modifier: " + Modifier.toString(modifier));
+
+                // get the return types of method
+                System.out.println("Return Types: " + m.getReturnType());
+                System.out.println(" ");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
 注解：有点像装饰器,定义注解语法：`public @interface Report {int type() default 0;}`
 元注解：修饰注解的注解
@@ -76,6 +129,7 @@ JVM 懒加载类
 
 泛型：泛型之于整型，相当于整型之于整型字面量1，即泛型是对类型的抽象
 泛型定义：类或者接口后添加 <K, V>;静态方法定义泛型，static 后面多一个<>
+泛型的无界通配符?表示该泛型类型可以持有多个由泛型的实例化而来的类型     
 
 Java 泛型的实现       // TUDO
 extends super通配符  // TUDO
