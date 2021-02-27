@@ -3,13 +3,13 @@
 按照欢迎页的提示配置
 ### 自定义vscode workbench 样式(hack)
 feature-request difficult from @aeschli https://github.com/Microsoft/vscode/issues/26128 
-一年多都管不了，凉凉了，自己hack, 为了用用等宽字体也是不容易
+一年多都管不了，凉凉了，自己hack, 为了使用等宽字体也是不容易
 
 在文件 /Applications/Visual Studio Code.app/Contents/Resources/app/out/vs/workbench/workbench.main.css
-中加入如下样式 .monaco-shell {font-family: Menlo!important;}
-可自定义vscode workbench 样式
-这时会有 unsupported 的标识，烦人，用插件去掉： Fix VSCode Checksums
-Fix Checksums: Apply
+中加入如下样式 .monaco-scrollable-element {font-family: Menlo!important;}
+
+这时会有 unsupported 的标识，烦人，用插件(Fix VSCode Checksums)去掉
+执行命令：Fix Checksums: Apply
 restart vscode
 prefect!
 ### 解决git中文乱码 git config core.quotepath false
