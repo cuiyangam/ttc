@@ -1,23 +1,11 @@
-// https://leetcode-cn.com/problems/two-sum/
-// + 遍历过程中找另一个加数
-//     + 如果存在，返回俩下标
-//     + 如果不存在，将加数与对应的下标存入map
-var twoSum = function(nums, target) {
-    let map = new Map();
-    for(let i =0; i < nums.length; i++) {
-        if(map.has(target - nums[i])) {
-            return [map.get(target - nums[i]), i]
-        }
-        map.set(nums[i], i);
-    }
-};
-console.log(twoSum([2,7,11,15], 9));
-
 // https://leetcode-cn.com/problems/container-with-most-water/
 // + 将双指针指向容器两端，记录此时容积
 //     + 移动较短的一端，直到双指针相遇，此过程更新最大容积
 // Q：为什么该过程不会漏掉最大容积情况？
-// A：如果移动长板，则移动后的容积一定小于移动前，相遇过程中宽减小，高度变小或者不变，面积变小
+// A: 1.导致最大面积的长短版下标必然存在
+//    2.如果移动长板，则移动后的容积一定小于移动前，相遇过程中宽减小，高度变小或者不变，面积一定变小
+//    3.所以只能移动短板，宽减小，高度可能变大，面积可能变大
+//    4.长短板相遇，我们已经沿着面积可能变大得路径遍历了所有情况，最大的面积必然已经在遍历过程中被记录
 var maxArea = function(height) {
     let l = 0;
     let r = height.length - 1;
@@ -64,6 +52,7 @@ var climbStairs = function(n) {
     let prepre = 1;
     let pre = 2;
     let curr = 0;
+    
     let step = 3;
     while(step++ <= n) {
         curr = prepre + pre;
@@ -73,6 +62,21 @@ var climbStairs = function(n) {
     return curr;
 }
 console.log(climbStairs(4));
+
+// https://leetcode-cn.com/problems/two-sum/
+// + 遍历过程中找另一个加数
+//     + 如果存在，返回俩下标
+//     + 如果不存在，将加数与对应的下标存入map
+var twoSum = function(nums, target) {
+    let map = new Map();
+    for(let i =0; i < nums.length; i++) {
+        if(map.has(target - nums[i])) {
+            return [map.get(target - nums[i]), i]
+        }
+        map.set(nums[i], i);
+    }
+};
+console.log(twoSum([2,7,11,15], 9));
 
 // https://leetcode-cn.com/problems/3sum/
 var threeSum = function(nums) {
