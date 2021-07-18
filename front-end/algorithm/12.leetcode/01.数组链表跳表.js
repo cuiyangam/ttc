@@ -80,5 +80,35 @@ console.log(twoSum([2,7,11,15], 9));
 
 // https://leetcode-cn.com/problems/3sum/
 var threeSum = function(nums) {
+    nums.sort((a , b) => a-b);
+    let result = [];
+    let resultMap = new Map();
+    for(let i = 0; i < nums.length - 2; i ++) {
+        if ( i > 1 && nums[i - 1] === nums[i]) {
+            continue;
+        }
+        // 转化为两数之和
+        target = 0 - nums[i];
+        let map = new Map;
 
+        for(let j = i + 1; j < nums.length; j++) {
+            if (map.has(target - nums[j])) {
+                let second = map.get(target - nums[j]);
+                let key = `key-${nums[i]}${nums[j]}${nums[second]}`;
+                if(!resultMap.has(key)) {
+                    let item = [
+                        nums[i],
+                        nums[j],
+                        nums[second]
+                    ];
+                    resultMap.set(key, item);
+                }
+                
+            } 
+            map.set(nums[j], j);
+        }
+        map.clear();
+    }
+
+    return result;
 };
