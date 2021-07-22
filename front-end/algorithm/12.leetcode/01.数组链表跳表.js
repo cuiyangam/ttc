@@ -40,28 +40,6 @@ var moveZeroes = function(nums) {
 };
 console.log(moveZeroes([0,1,0,3,12]));
 
-// https://leetcode-cn.com/problems/climbing-stairs/
-// + 第一阶梯一种方法f(1)
-// + 第二阶梯两种方法f(2)
-// + 到达第三阶梯之前可以是迈了一步，也可以是迈了两步，所以方法总数f(3) = f(2) + f(1);
-// + 同理可得f(x) = f(x - 1) + f(x - 2)
-var climbStairs = function(n) {
-    if(n === 2 || n === 1) {
-        return n;
-    }
-    let prepre = 1;
-    let pre = 2;
-    let curr = 0;
-    
-    let step = 3;
-    while(step++ <= n) {
-        curr = prepre + pre;
-        prepre = pre;
-        pre = curr;
-    }
-    return curr;
-}
-console.log(climbStairs(4));
 
 // https://leetcode-cn.com/problems/two-sum/
 // + 遍历过程中找另一个加数
