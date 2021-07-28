@@ -7,9 +7,7 @@
 //    3.所以只能移动短板，宽减小，高度可能变大，面积可能变大
 //    4.长短板相遇，我们已经沿着面积可能变大得路径遍历了所有情况，最大的面积必然已经在遍历过程中被记录
 var maxArea = function(height) {
-    let l = 0;
-    let r = height.length - 1;
-    let max = 0;
+    let [l, r, max] = [0, height.length - 1, 0];
     while(l < r) {
         const temp = height[l] < height[r]
             ? (r - l) * height[l++]
@@ -46,7 +44,7 @@ console.log(moveZeroes([0,1,0,3,12]));
 //     + 如果存在，返回俩下标
 //     + 如果不存在，将加数与对应的下标存入map
 var twoSum = function(nums, target) {
-    let map = new Map();
+    let map = new Map(); // target value -> target index
     for(let i =0; i < nums.length; i++) {
         if(map.has(target - nums[i])) {
             return [map.get(target - nums[i]), i]
@@ -58,7 +56,7 @@ console.log(twoSum([2,7,11,15], 9));
 
 // https://leetcode-cn.com/problems/3sum/
 var threeSum = function(nums) {
-    nums.sort((a , b) => a-b);
+    nums.sort((a, b) => a - b);
     let result = [];
     let resultMap = new Map();
     for(let i = 0; i < nums.length - 2; i ++) {
