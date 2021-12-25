@@ -7,15 +7,17 @@
  */
 
 /**
+ * https://leetcode-cn.com/problems/house-robber/
+ * 
  * 将原问题拆分子问题，找出递推关系
- *   定义f(k)表示[0, k]区间内的解。 房间金额保存在数组n
- *   如果盗取第k个房间，f(k) = f(k - 1)
- *   如果不盗取第k个房间，f(k) = f(k - 2) + n[k]
- *   f(k) = Math.max(...)
+ *   房间金额保存在数组nums, 定义f(k)表示数组下标[0, k]区间内的解
+ *   如果盗取第k个房间，f(k) = f(k - 1) = A
+ *   如果不盗取第k个房间，f(k) = f(k - 2) + nums[k] = B
+ *   f(k) = Math.max(A, B)
  * 确定递推关系的起止状态
- *   k 等于房间数量时候 f(k)纪委问题的解
- *   0 <= k < n.length
- *   f(0) = n[0]; f(1) = Math.max(n[0], n[1]);
+ *   k 等于数组最后一个下标的时候 f(k)即为问题的解
+ *   0 <= k <= nums.length - 1
+ *   f(0) = nums[0]; f(1) = Math.max(nums[0], nums[1]);
  */ 
 
 /**
