@@ -51,6 +51,7 @@ git commit -m ""
 ```
 ##5.远程仓库
 ssh-keygen -t rsa -C "youremail@example.com"
+有时候并没有在~/.ssh/下生成公私钥文件，而是在~/，这时需要手动添加 ssh-add yes，然后再去github添加公钥
 ###5.1.添加远程库
 cd gitTest 
 git remote add origin https://github.com/getlinerm/gitTestOnline.git ##origin为远程库的别名
