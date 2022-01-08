@@ -53,6 +53,7 @@ var minDistance = function(word1, word2) {
     }
     return dp[s.length - 1][t.length - 1];
 };
+
 var getDp = function(m, n) {
     let ret = new Array(m);
     for(let i = 0; i < m; i++) {

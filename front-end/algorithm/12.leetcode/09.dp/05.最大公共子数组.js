@@ -53,6 +53,7 @@ var findLength = function(nums1, nums2) {
     }
     return max;
 };
+
 var getDp = function(m, n) {
     let ret = new Array(m);
     for(let i = 0; i < m; i++) {

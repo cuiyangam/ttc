@@ -41,4 +41,3 @@ var getDp = function (m, n) {
   }
   return ret;
 }
-console.log(maxProfit([1, 2]))

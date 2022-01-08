@@ -123,4 +123,3 @@ var getValues2 = function(prices) {
     }
     return res.reverse().map(v => -v);
 }
-
