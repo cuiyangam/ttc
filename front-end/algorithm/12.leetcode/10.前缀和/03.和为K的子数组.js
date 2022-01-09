@@ -33,19 +33,17 @@
  */
 var subarraySum = function(nums, k) {
   let ret = 0;
-  let preSum = [];
-  preSum[0] = 0;
-  for(let i = 0; i < nums.length; i++) {
-    preSum[i + 1] = preSum[i] + nums[i];
+  this.preSum = [0];
+  let n = nums.length;
+  for(let i = 1; i < n + 1; i++) {
+    this.preSum[i] = this.preSum[i - 1] + nums[i - 1];
   }
 
   let map = new Map();
-  map.set(0, 0);
   for(let i = 0; i < preSum.length; i++) {
     let objNum = preSum[i] - k;
-    let a = map.get(objNum);
     if(map.has(objNum)) {
-      ret += a;
+      ret += map.get(objNum);
     }
     if(map.has(preSum[i])) {
       map.set(preSum[i], map.get(preSum[i]) + 1);
@@ -56,5 +54,5 @@ var subarraySum = function(nums, k) {
   return ret;
 };
 
-subarraySum([1,1,1], 2)
+console.log(subarraySum([1,1,1], 2))
 // 双重for循环，可以借助map转化为一重for循环，特点，原来的内层循环结束条件跟外层循环有关
