@@ -4,6 +4,11 @@
  */
 
 /**
+ * n进制数的求法，将数字不断除以n，余数保存，商继续除以n
+ * 最后将保存余数的数组翻转就是转换为n进制数的结果
+ */
+
+/**
  * @param {number} num
  * @return {string}
  */
@@ -15,8 +20,7 @@ var convertToBase7 = function (num) {
     let res = [rest];
 
     while (devide > 0) {
-        num = devide;
-        [devide, rest] = oper(num);
+        [devide, rest] = oper(devide);
         res.push(rest);
     }
 

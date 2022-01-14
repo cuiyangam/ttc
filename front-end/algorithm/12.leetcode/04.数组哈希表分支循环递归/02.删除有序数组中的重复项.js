@@ -4,18 +4,23 @@
  */
 
 /**
+ * 遍历过程中用指针指向之前没有出现过的元素的位置
+ * 指针最后指向的位置就是最后一位不重复元素的下标
+ */
+
+/**
  * @param {number[]} nums
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-    let currentIndex = 0;
-    for (let iteratorIndex = 1; iteratorIndex < nums.length;) {
-        if (nums[currentIndex] === nums[iteratorIndex]) {
-            iteratorIndex++;
+    let pointer = 0;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[pointer] === nums[i]) {
+            continue;
         } else {
-            currentIndex++;
-            nums[currentIndex] = nums[iteratorIndex];
+            pointer++;
+            nums[pointer] = nums[i];
         }
     }
-    return currentIndex + 1;
+    return pointer + 1;
 };

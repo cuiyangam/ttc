@@ -4,6 +4,10 @@
  */
 
 /**
+ * 懒得细粒度操作，直接用js提供的api 
+ */
+
+/**
  * @param {string} s
  * @return {string}
  */

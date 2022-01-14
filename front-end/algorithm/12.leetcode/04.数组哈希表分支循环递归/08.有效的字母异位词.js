@@ -4,6 +4,10 @@
  */
 
 /**
+ * 用字母的asc码相关的数值做key，用该字母出现的次数做value，用序列化后的values判定异位词
+ */
+
+/**
  * @param {string} s
  * @param {string} t
  * @return {boolean}
