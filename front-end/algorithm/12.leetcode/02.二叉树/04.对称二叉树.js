@@ -4,6 +4,12 @@
  */
 
 /**
+ * 如果左右子树都为空，判定为same
+ * 如果左右子树有且仅有一颗为空，判定为false
+ * 如果左右子树都不为空，则比较 俩兄弟节点值是否相等以及递归判定镜面对称的俩节点是否相同
+ */
+
+/**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)

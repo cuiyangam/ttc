@@ -4,6 +4,10 @@
  */
 
 /**
+ * 递归求深度，递归结束条件是节点为null
+ */
+
+/**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
@@ -14,9 +18,8 @@
 var maxDepth = root => {
     if (root === null) {
         return 0;
-    } else {
-        let leftHeight = maxDepth(root.left);
-        let rightHeight = maxDepth(root.right);
-        return Math.max(leftHeight, rightHeight) + 1;
     }
+    let leftHeight = maxDepth(root.left);
+    let rightHeight = maxDepth(root.right);
+    return Math.max(leftHeight, rightHeight) + 1;
 }
