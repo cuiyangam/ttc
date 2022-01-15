@@ -1,14 +1,16 @@
 /**
+ * 1143. 最长公共子序列
+ * https://leetcode-cn.com/problems/longest-common-subsequence/
+ */
+
+/**
  * dp解题步骤
  * 
  * 将原问题拆分子问题，找出递推关系
  * 确定递推关系的起止状态
  * dp是空间换时间，可以考虑对空间压缩(可选)
  */
-
 /**
- * https://leetcode-cn.com/problems/longest-common-subsequence/
- * 
  * 将原问题拆分子问题，找出递推关系
  *   定义f(i,j)为字符串text1取下标[0,i]区间与字符串text2取下标[0,j]区间时，这两个字符串的最长公共子序列
  *   如果text1[i] === text2[j]

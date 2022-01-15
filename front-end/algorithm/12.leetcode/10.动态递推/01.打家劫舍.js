@@ -1,19 +1,21 @@
 /**
+ * 198. 打家劫舍
+ * https://leetcode-cn.com/problems/house-robber/
+ */
+
+/**
  * dp解题步骤
  * 
  * 将原问题拆分子问题，找出递推关系
  * 确定递推关系的起止状态
  * dp是空间换时间，可以考虑对空间压缩(可选)
  */
-
 /**
- * https://leetcode-cn.com/problems/house-robber/
- * 
  * 将原问题拆分子问题，找出递推关系
  *   房间金额保存在数组nums, 定义f(k)表示数组下标[0, k]区间内的解
  *   如果不盗取第k个房间，f(k) = f(k - 1)
  *   如果盗取第k个房间，f(k) = f(k - 2) + nums[k]
- *   f(k) = Math.max(A, B)
+ *   f(k) = f(k - 1), f(k - 2) + nums[k] 两者取最大值
  * 确定递推关系的起止状态
  *   k 等于数组最后一个下标的时候 f(k)即为问题的解
  *   0 <= k <= nums.length - 1
