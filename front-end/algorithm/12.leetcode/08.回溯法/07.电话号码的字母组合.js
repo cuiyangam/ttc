@@ -3,6 +3,14 @@
  * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
  */
 
+/**
+ * 递归
+ */
+
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
 var letterCombinations = (digits) => {
     let combinations = [];
     if (digits.length == 0) {
@@ -22,6 +30,14 @@ var letterCombinations = (digits) => {
     return combinations;
 }
 
+/**
+ * 
+ * @param {*} combinations 最终的字母组合集合
+ * @param {*} phoneMap 
+ * @param {*} digits 
+ * @param {*} index 遍历到的下标
+ * @param {*} combination 当前的字母组合
+ */
 var backtrack = (combinations, phoneMap, digits, index, combination) => {
     if (index == digits.length) {
         combinations.push(combination);

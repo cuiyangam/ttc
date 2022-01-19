@@ -4,8 +4,12 @@
  */
 
 /**
- * @param {number} n
- * @param {number} k
+ * 
+ */
+
+/**
+ * @param {number} n [1, n]
+ * @param {number} k k 个数的组合
  * @return {number[][]}
  */
 var combine = function (n, k) {

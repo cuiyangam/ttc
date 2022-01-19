@@ -4,6 +4,12 @@
  */
 
 /**
+ * 排列全排列，解法类似
+ * 为什么排列要用递归来回溯，因为排列的定义是递归的定义
+ *   第一个位置遍历地取过每个值，加上第一个位置的数值固定之后，第二个位置到最后的数值的排列
+ */
+
+/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -14,6 +20,13 @@ var permute = (nums) => {
     return res;
 }
 
+/**
+ * 
+ * @param {*} current 待排列的数组
+ * @param {*} k 排列第K个元素
+ * @param {*} res 结果
+ * @returns 
+ */
 var backtrack = (current, k, res) => {
     if (k === current.length) {
         res.push(current.slice());
