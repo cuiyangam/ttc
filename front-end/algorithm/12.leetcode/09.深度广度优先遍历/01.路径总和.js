@@ -23,6 +23,13 @@ var hasPathSum = function (root, targetSum) {
     return preOrder(root, 0, targetSum);
 };
 
+/**
+ * 
+ * @param {*} node 先序遍历的根节点
+ * @param {*} prevValue 已遍历节点的数值之和
+ * @param {*} targetSum 目标值
+ * @returns 
+ */
 const preOrder = (node, prevValue, targetSum) => {
     const curr = node.val + prevValue;
     if (node.left === null && node.right === null && curr === targetSum) {

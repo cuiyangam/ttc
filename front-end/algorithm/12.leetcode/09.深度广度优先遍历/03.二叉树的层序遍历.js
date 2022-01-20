@@ -4,6 +4,10 @@
  */
 
 /**
+ * 常规层序遍历的基础上，加入一个for循环，将层序遍历的每一层分别存储
+ */
+
+/**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
