@@ -3,6 +3,15 @@
  * https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
  */
 
+/**
+ * 常规操作
+ */
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
 var searchRange = function (nums, target) {
     let [start, end] = [0, nums.length - 1];
     let middle;

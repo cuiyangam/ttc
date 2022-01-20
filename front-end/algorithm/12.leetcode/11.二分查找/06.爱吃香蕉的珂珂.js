@@ -3,13 +3,10 @@
  * https://leetcode-cn.com/problems/koko-eating-bananas/
  */
 
-var getCost = function (piles, speed) {
-    let cost = 0;
-    for (let i = 0; i < piles.length; i++) {
-        cost += Math.ceil(piles[i] / speed);
-    }
-    return cost;
-}
+/**
+ * 注意折半查找结束条件
+ */
+
 /**
  * @param {number[]} piles
  * @param {number} h
@@ -32,7 +29,7 @@ var minEatingSpeed = function (piles, h) {
         let cost = getCost(piles, middle);
         let costpre = getCost(piles, middle - 1);
 
-        if (cost <= h && costpre > h) {
+        if (cost <= h && costpre > h) { // 折半结束条件，middle算出的cost刚好符合，少一小时都不行
             r = middle; break;
         }
         if (cost > h) {
@@ -43,3 +40,11 @@ var minEatingSpeed = function (piles, h) {
     }
     return r;
 };
+
+var getCost = function (piles, speed) {
+    let cost = 0;
+    for (let i = 0; i < piles.length; i++) {
+        cost += Math.ceil(piles[i] / speed);
+    }
+    return cost;
+}

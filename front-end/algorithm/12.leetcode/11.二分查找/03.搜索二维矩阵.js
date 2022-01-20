@@ -3,6 +3,17 @@
  * https://leetcode-cn.com/problems/search-a-2d-matrix/
  */
 
+/**
+ * 从左至右递增，行尾元素小于下一行最小元素
+ *   先确定行，再确定列
+ *   确定所在行的判定条件：目标元素属于行的起止元素之间
+ */
+
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
 var searchMatrix = function (matrix, target) {
     if (target < matrix[0][0] || target > matrix[matrix.length - 1][matrix[0].length - 1]) {
         return false;
@@ -21,7 +32,7 @@ var searchMatrix = function (matrix, target) {
         }
     }
 
-    let [column, columnl, columnr] = [0, 0, matrix[0].length];
+    let [columnl, columnr] = [0, matrix[0].length];
     while (columnl <= columnr) {
         let mid = Math.floor((columnl + columnr) / 2);
         if (target === matrix[row][mid]) {
