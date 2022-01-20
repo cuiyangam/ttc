@@ -3,6 +3,10 @@
  * https://leetcode-cn.com/problems/path-sum-ii/
  */
 
+/**
+ * 参数stack记录当前已遍历过的节点 
+ */
+
 var pathSum = function (root, targetSum) {
     if (!root) {
         return [];
@@ -12,7 +16,13 @@ var pathSum = function (root, targetSum) {
     preOrder(root, stack, targetSum, res);
     return res;
 };
-
+/**
+ * 
+ * @param {*} node 先序遍历的根节点
+ * @param {*} stack 已遍历节点
+ * @param {*} targetSum 目标值
+ * @param {*} res 最终结果
+ */
 const preOrder = (node, stack, targetSum, res) => {
     if (node) { // not leaf
         stack.push(node.val);

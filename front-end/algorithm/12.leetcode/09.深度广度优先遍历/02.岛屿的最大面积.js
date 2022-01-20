@@ -4,6 +4,10 @@
  */
 
 /**
+ * 遍历过的陆地1置为2
+ */
+
+/**
  * @param {number[][]} grid
  * @return {number}
  */
