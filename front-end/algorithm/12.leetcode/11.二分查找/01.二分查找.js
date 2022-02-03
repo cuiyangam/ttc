@@ -4,6 +4,10 @@
  */
 
 /**
+ * 避免陷入死循环，考虑取middle的逻辑与折半操作方法
+ */
+
+/**
  * @param {number[]} nums
  * @param {number} target
  * @return {number}

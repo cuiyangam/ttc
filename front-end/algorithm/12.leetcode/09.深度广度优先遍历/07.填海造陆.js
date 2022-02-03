@@ -1,6 +1,12 @@
 /**
  * 827. 最大人工岛
+ * 将一块海洋变为陆地，网格中的最大岛屿面积可以是多少
  * https://leetcode-cn.com/problems/making-a-large-island/
+ */
+
+/**
+ * 先将网格区域的所有岛屿打标签，以标识小格子属于不同的岛屿
+ * 然后遍历海洋小格子，同时计算其联通的岛屿，取最大值即为最终解
  */
 
 const largestIsland = (grid) => {
@@ -14,7 +20,7 @@ const largestIsland = (grid) => {
 }
 
 const markIsland = (grid, markAreaMap) => {
-    let mark = 2; // >=2的数字是遍历过的岛屿
+    let mark = 2; // >=2的数字是遍历过的岛屿，每个岛屿中单个网格的mark相同
     let allIsLand = true;
     for (let r = 0; r < grid.length; r++) {
         for (let c = 0; c < grid[0].length; c++) {
@@ -44,6 +50,7 @@ const findLargestIsland = (grid, markAreaMap) => {
     return maxIslandNum;
 }
 
+// 由于已经遍历过网格区域的所有小格子，所以标记是0或者>=2
 const areaNewIsland = (grid, r, c, markAreaMap) => {
     let countedArea = new Set();
     if (inArea(grid, r - 1, c) && grid[r - 1][c] != 0) {
