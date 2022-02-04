@@ -32,7 +32,7 @@ const getResult = (status, endIndex) => {
         || status[1][endIndex] && getResultRec(status, endIndex - 1, 1);
 }
 
-const getResultRec = (status, endIndex, device) => {
+const getResultRec = (status, endIndex, device, walked = false) => {
     if(endIndex === 0) {
         return status[0][0] && device === 0 || status[1][0] && device === 1;
     }
@@ -40,8 +40,16 @@ const getResultRec = (status, endIndex, device) => {
         return false;
     }
     let otherDevice = device === 0 ? 1 : 0;
-    return status[device][endIndex - 1] && getResultRec(status, endIndex - 1, device)
-        || status[otherDevice][endIndex] && getResultRec(status, endIndex, otherDevice);
+
+    if(!walked) {
+        walked = true;
+        return status[device][endIndex - 1] && getResultRec(status, endIndex - 1, device)
+        || status[otherDevice][endIndex] && getResultRec(status, endIndex, otherDevice, walked);
+    }
+    if(walked) {
+        return status[device][endIndex - 1] && getResultRec(status, endIndex - 1, device);
+    }
+
 }
 
-console.log(compute(5, [[0, 1], [1, 1]], [4]))
+console.log(compute(5, [[0, 1], [1, 3]], [1,2,4]))
